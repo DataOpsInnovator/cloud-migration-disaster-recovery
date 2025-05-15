@@ -1,0 +1,11 @@
+---
+- name: Migrate Application Servers
+  hosts: source_servers
+  tasks:
+    - name: Archive application files
+      command: tar czf /tmp/app.tar.gz /opt/app
+
+    - name: Transfer archive to target
+      copy:
+        src: /tmp/app.tar.gz
+        dest: /opt/app.tar.gz

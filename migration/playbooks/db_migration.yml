@@ -1,0 +1,11 @@
+---
+- name: Migrate Databases
+  hosts: db_servers
+  tasks:
+    - name: Dump database
+      command: pg_dumpall > /tmp/db.sql
+
+    - name: Transfer DB dump
+      copy:
+        src: /tmp/db.sql
+        dest: /var/backups/db.sql

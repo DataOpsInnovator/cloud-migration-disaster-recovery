@@ -1,0 +1,6 @@
+---
+- name: Sync Storage
+  hosts: source_servers
+  tasks:
+    - name: Rsync files
+      command: rsync -avz /data/ user@target:/data/

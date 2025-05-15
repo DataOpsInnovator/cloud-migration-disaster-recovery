@@ -1,0 +1,14 @@
+name: Disaster Recovery Drill
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dr-failover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Trigger failover
+        run: ./scripts/test-dr.sh

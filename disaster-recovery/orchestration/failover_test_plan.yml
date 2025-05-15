@@ -1,0 +1,16 @@
+
+name: DR Failover Test Plan
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'  # Weekly
+
+jobs:
+  simulate-failover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run DR test
+        run: ./scripts/test-dr.sh
